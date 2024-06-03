@@ -156,17 +156,15 @@ class DragAndDropListExpansion implements DragAndDropListExpansionInterface {
               ),
             ),
       );
-      contents.add(
-        DragAndDropItemTarget(
-          parent: this,
-          parameters: parameters,
-          onReorderOrAdd: parameters.onItemDropOnLastTarget!,
-          child: lastTarget ??
-              Container(
-                height: parameters.lastItemTargetHeight,
-              ),
-        ),
-      );
+      if (lastTarget != null)
+        contents.add(
+          DragAndDropItemTarget(
+            parent: this,
+            parameters: parameters,
+            onReorderOrAdd: parameters.onItemDropOnLastTarget!,
+            child: lastTarget!,
+          ),
+        );
     }
     return contents;
   }
