@@ -165,15 +165,13 @@ class DragAndDropList implements DragAndDropListInterface {
                         fontStyle: FontStyle.italic,
                       ),
                     ),
-                DragAndDropItemTarget(
-                  parent: this,
-                  parameters: parameters,
-                  onReorderOrAdd: parameters.onItemDropOnLastTarget!,
-                  child: lastTarget ??
-                      Container(
-                        height: parameters.lastItemTargetHeight,
-                      ),
-                ),
+                if (lastTarget != null)
+                  DragAndDropItemTarget(
+                    parent: this,
+                    parameters: parameters,
+                    onReorderOrAdd: parameters.onItemDropOnLastTarget!,
+                    child: lastTarget!,
+                  ),
               ],
             ),
           ),
